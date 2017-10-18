@@ -1,0 +1,710 @@
+
+<!doctype html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta content='IE=edge,chrome=1' http-equiv='X-UA-Compatible'><script type="text/javascript">window.NREUM||(NREUM={}),__nr_require=function(e,n,t){function r(t){if(!n[t]){var o=n[t]={exports:{}};e[t][0].call(o.exports,function(n){var o=e[t][1][n];return r(o||n)},o,o.exports)}return n[t].exports}if("function"==typeof __nr_require)return __nr_require;for(var o=0;o<t.length;o++)r(t[o]);return r}({1:[function(e,n,t){function r(){}function o(e,n,t){return function(){return i(e,[c.now()].concat(u(arguments)),n?null:this,t),n?void 0:this}}var i=e("handle"),a=e(2),u=e(3),f=e("ee").get("tracer"),c=e("loader"),s=NREUM;"undefined"==typeof window.newrelic&&(newrelic=s);var p=["setPageViewName","setCustomAttribute","setErrorHandler","finished","addToTrace","inlineHit","addRelease"],d="api-",l=d+"ixn-";a(p,function(e,n){s[n]=o(d+n,!0,"api")}),s.addPageAction=o(d+"addPageAction",!0),s.setCurrentRouteName=o(d+"routeName",!0),n.exports=newrelic,s.interaction=function(){return(new r).get()};var m=r.prototype={createTracer:function(e,n){var t={},r=this,o="function"==typeof n;return i(l+"tracer",[c.now(),e,t],r),function(){if(f.emit((o?"":"no-")+"fn-start",[c.now(),r,o],t),o)try{return n.apply(this,arguments)}finally{f.emit("fn-end",[c.now()],t)}}}};a("setName,setAttribute,save,ignore,onEnd,getContext,end,get".split(","),function(e,n){m[n]=o(l+n)}),newrelic.noticeError=function(e){"string"==typeof e&&(e=new Error(e)),i("err",[e,c.now()])}},{}],2:[function(e,n,t){function r(e,n){var t=[],r="",i=0;for(r in e)o.call(e,r)&&(t[i]=n(r,e[r]),i+=1);return t}var o=Object.prototype.hasOwnProperty;n.exports=r},{}],3:[function(e,n,t){function r(e,n,t){n||(n=0),"undefined"==typeof t&&(t=e?e.length:0);for(var r=-1,o=t-n||0,i=Array(o<0?0:o);++r<o;)i[r]=e[n+r];return i}n.exports=r},{}],4:[function(e,n,t){n.exports={exists:"undefined"!=typeof window.performance&&window.performance.timing&&"undefined"!=typeof window.performance.timing.navigationStart}},{}],ee:[function(e,n,t){function r(){}function o(e){function n(e){return e&&e instanceof r?e:e?f(e,u,i):i()}function t(t,r,o,i){if(!d.aborted||i){e&&e(t,r,o);for(var a=n(o),u=m(t),f=u.length,c=0;c<f;c++)u[c].apply(a,r);var p=s[y[t]];return p&&p.push([b,t,r,a]),a}}function l(e,n){v[e]=m(e).concat(n)}function m(e){return v[e]||[]}function w(e){return p[e]=p[e]||o(t)}function g(e,n){c(e,function(e,t){n=n||"feature",y[t]=n,n in s||(s[n]=[])})}var v={},y={},b={on:l,emit:t,get:w,listeners:m,context:n,buffer:g,abort:a,aborted:!1};return b}function i(){return new r}function a(){(s.api||s.feature)&&(d.aborted=!0,s=d.backlog={})}var u="nr@context",f=e("gos"),c=e(2),s={},p={},d=n.exports=o();d.backlog=s},{}],gos:[function(e,n,t){function r(e,n,t){if(o.call(e,n))return e[n];var r=t();if(Object.defineProperty&&Object.keys)try{return Object.defineProperty(e,n,{value:r,writable:!0,enumerable:!1}),r}catch(i){}return e[n]=r,r}var o=Object.prototype.hasOwnProperty;n.exports=r},{}],handle:[function(e,n,t){function r(e,n,t,r){o.buffer([e],r),o.emit(e,n,t)}var o=e("ee").get("handle");n.exports=r,r.ee=o},{}],id:[function(e,n,t){function r(e){var n=typeof e;return!e||"object"!==n&&"function"!==n?-1:e===window?0:a(e,i,function(){return o++})}var o=1,i="nr@id",a=e("gos");n.exports=r},{}],loader:[function(e,n,t){function r(){if(!x++){var e=h.info=NREUM.info,n=d.getElementsByTagName("script")[0];if(setTimeout(s.abort,3e4),!(e&&e.licenseKey&&e.applicationID&&n))return s.abort();c(y,function(n,t){e[n]||(e[n]=t)}),f("mark",["onload",a()+h.offset],null,"api");var t=d.createElement("script");t.src="https://"+e.agent,n.parentNode.insertBefore(t,n)}}function o(){"complete"===d.readyState&&i()}function i(){f("mark",["domContent",a()+h.offset],null,"api")}function a(){return E.exists&&performance.now?Math.round(performance.now()):(u=Math.max((new Date).getTime(),u))-h.offset}var u=(new Date).getTime(),f=e("handle"),c=e(2),s=e("ee"),p=window,d=p.document,l="addEventListener",m="attachEvent",w=p.XMLHttpRequest,g=w&&w.prototype;NREUM.o={ST:setTimeout,SI:p.setImmediate,CT:clearTimeout,XHR:w,REQ:p.Request,EV:p.Event,PR:p.Promise,MO:p.MutationObserver};var v=""+location,y={beacon:"bam.nr-data.net",errorBeacon:"bam.nr-data.net",agent:"js-agent.newrelic.com/nr-1044.min.js"},b=w&&g&&g[l]&&!/CriOS/.test(navigator.userAgent),h=n.exports={offset:u,now:a,origin:v,features:{},xhrWrappable:b};e(1),d[l]?(d[l]("DOMContentLoaded",i,!1),p[l]("load",r,!1)):(d[m]("onreadystatechange",o),p[m]("onload",r)),f("mark",["firstbyte",u],null,"api");var x=0,E=e(4)},{}]},{},["loader"]);</script><script type="text/javascript">window.NREUM||(NREUM={});NREUM.info={"beacon":"bam.nr-data.net","queueTime":0,"licenseKey":"88d5e510f0","agent":"","transactionName":"Z1ZQYBMAWkdYVhAIWV4cdEEPAkBdVltLB0RfXUZRDwUaQlBQExIMWFxfUREAU1E=","applicationID":"39822524","errorBeacon":"bam.nr-data.net","applicationTime":18}</script>
+    <meta name="msvalidate.01" content="673973BC249D0E5B724A228F6047DB16">
+
+    
+    <title>Diversified Risk Solutions LLC</title>
+
+
+    
+    <link rel="canonical" href="https://www.divrisk.com">
+
+
+    
+        <meta name="description" content="Diversified Risk Solutions® is a leading provider of insurance, risk management, bonding, consulting and employee benefits solutions to individuals and businesses globally. Our team of industry leading professionals utilize our LOGIC system, the most advanced technology available, with our core value emphasis on personal relationships to ensure that we deliver custom tailored solutions in an increasingly commoditized industry. With Diversified Risk Solutions®, clients are not just a policy number." />
+        <meta itemprop='description' content='Compare commercial insurance from hundreds of insurance providers instantly. Save money by getting multiple insurance quotes & the lowest rates in your area.' />
+    
+
+    
+        <meta property="og:type" content="website" />
+    
+
+    
+        <meta property="og:url" content="https://www.divrisk.com" />
+    
+
+    
+        <meta property="og:image" content="https://www.dropbox.com/s/6rgdwrn6xx6qsus/Untitled.png?dl=0" />
+    
+
+    
+    <meta property="og:title" content="Diversified Risk Solutions LLC" />
+
+
+    
+        <meta property="og:description" content="Compare commercial insurance from hundreds of insurance providers in under 60 seconds &amp; save up to 50%. Find the best commercial insurance rates in your area today!" />
+    
+
+    
+        <meta name="msapplication-tap-highlight" content="no" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+        <meta name="mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+    
+
+    
+        <link rel="icon" type="image/x-icon" href="common-files/img/divrisk_smalllogo.jpg">
+        <link rel="shortcut icon" sizes="196x196" href="common-files/img/divrisk_smalllogo.jpg">
+        <link rel="apple-touch-icon" sizes="128x128" href="common-files/img/divrisk_smalllogo.jpg">
+		
+		 <link rel="stylesheet" href="flat-ui/bootstrap/css/bootstrap.css">
+        <link rel="stylesheet" href="flat-ui/css/flat-ui.css">
+        <!-- Using only with Flat-UI (free)-->
+        <link rel="stylesheet" href="common-files/css/icon-font.css">
+        <!-- end -->
+        <link rel="stylesheet" href="common-files/css/animations.css">
+        
+        <!-- If you don't use any of these blocks just remove unnecessary CSS files -->
+        <!-- blog -->
+        <link rel="stylesheet" href="ui-kit/ui-kit-blog/css/style.css">
+        <!-- contacts -->
+        <link rel="stylesheet" href="ui-kit/ui-kit-contacts/css/style.css">
+        <!-- content -->
+        <link rel="stylesheet" href="ui-kit/ui-kit-content/css/style.css">
+        <!-- crew -->
+        <link rel="stylesheet" href="ui-kit/ui-kit-crew/css/style.css">
+        <!-- footer -->
+        <link rel="stylesheet" href="ui-kit/ui-kit-footer/css/style.css">
+        <!-- header -->
+        <link rel="stylesheet" href="ui-kit/ui-kit-header/css/style.css">
+        <!-- price -->
+        <link rel="stylesheet" href="ui-kit/ui-kit-price/css/style.css">
+        <!-- projects -->
+        <link rel="stylesheet" href="ui-kit/ui-kit-projects/css/style.css">
+
+        <link rel="stylesheet" href="css/style.css">
+
+
+    
+        <script type="text/javascript" id="loadcss">
+            (function() {
+                function loadCSS(e,n,o,t){"use strict";var d=window.document.createElement("link"),i=n||                window.document.getElementsByTagName("script")[0],r=window.document.styleSheets;                return d.rel="stylesheet",d.href=e,d.media="only x",t&&(d.onload=t),i.parentNode.insertBefore(d,i),                d.onloadcssdefined=function(e){for(var n,o=0;o<r.length;o++)r[o].href&&r[o].href===                d.href&&(n=!0);n?e():setTimeout(function(){d.onloadcssdefined(e)})},                d.onloadcssdefined(function(){d.media=o||"all"}),d}
+                loadCSS("//cloud.typography.com/6214852/7290372/css/fonts.css", document.getElementById("loadcss"));
+            })();
+        </script>
+		<link rel="stylesheet" href="https://d265csgshwrzqv.cloudfront.net/static/compressed/css/49723481e30e.css" type="text/css" />    
+
+    
+    <style>.h1,body,h1,h2,p a{font-weight:300}a,p a{background-color:transparent}.col-sm-10,.col-sm-8,.col-xs-8,.container{padding-left:.9375rem;padding-right:.9375rem}.btn-primary,.header,.intro-marquee,.overlay,svg:not(:root){overflow:hidden}.btn,.hero-footer,.mobile-wrap{text-align:center}p{margin-bottom:1rem;letter-spacing:-.02px}img{border:0}.container:after,.header:after,.row:after{clear:both}html{font-family:sans-serif;-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%;-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box;font-size:16px}.btn,.h1,body,h1,h2,h6{font-family:"Gotham SSm A","Gotham SSm B","Helvetica Neue",Arial,Verdana,sans-serif}main,nav,section{display:block}a{color:#5c6cff}.h1,body,h1,h2,h6,p a{color:#3d4144}h1{margin:.67em 0}.h1,h1,h2,h6{margin-bottom:.5rem}h1,h2,h6,p{margin-top:0}.btn,img{vertical-align:middle}a,p a{text-decoration:none}*,::after,::before{-webkit-box-sizing:inherit;-moz-box-sizing:inherit;box-sizing:inherit}@-ms-viewport{width:device-width}@viewport{width:device-width}body{margin:0;background-color:#fff;font-size:1rem;line-height:1.75}p a{border-bottom:2px solid #1cbeec;padding-top:.25rem}svg{max-height:100%}.h1,h1,h2,h6{letter-spacing:-1px}h6{font-weight:500}.h1,h1,h2{line-height:1.44em}.h1,h1{font-size:3rem}h2{font-size:2.188rem}@media (max-width:47.9em){.h1,h1{font-size:2.188rem}h2{font-size:1.75rem}}.btn-sm,h6{font-size:.85rem}h6{line-height:1.2em;color:#5c6cff;text-transform:uppercase}@media (max-width:47.9em){h6{font-size:.7rem}}.container{margin-right:auto;margin-left:auto}.container:after,.container:before,.row:after,.row:before{content:" ";display:table}@media (min-width:34em){.container{max-width:34rem}}@media (min-width:48em){.container{max-width:45rem}}@media (min-width:62em){.container{max-width:60rem}}.row{margin-left:-.9375rem;margin-right:-.9375rem}.col-sm-10,.col-sm-8,.col-xs-8{position:relative;min-height:1px}.col-xs-8{float:left;width:66.66667%}.col-xs-offset-2{margin-left:16.66667%}@media (min-width:34em){.col-sm-10,.col-sm-8{float:left}.col-sm-8{width:66.66667%}.col-sm-10{width:83.33333%}.col-sm-offset-1{margin-left:8.33333%}.col-sm-offset-2{margin-left:16.66667%}}.btn{white-space:nowrap;border:.0625rem solid transparent;display:inline-block;font-weight:400;-ms-touch-action:manipulation;touch-action:manipulation;padding:.75rem 2rem;font-size:1rem;line-height:1.75;border-radius:.25rem}.btn-primary{background-color:#5c6cff;background-image:none;border:0;color:#fff;position:relative;z-index:0}.btn-primary::after,.header{position:absolute;top:0;right:0;left:0}.btn-block,.btn-primary::after{display:block;width:100%}.btn-primary::after{background:-webkit-gradient(linear,left top,right top,from(#5c6cff),to(#1cbeec));background:-webkit-linear-gradient(left,#5c6cff,#1cbeec);background:-o-linear-gradient(left,#5c6cff,#1cbeec);background:linear-gradient(to right,#5c6cff,#1cbeec);border-color:transparent;border-radius:.25rem;content:'';opacity:.01;z-index:-1;height:100%;bottom:0}.btn-primary-outline{color:#5c6cff;background-image:none;background-color:transparent;border-color:#5c6cff}.btn-sm{padding:.5625rem 1rem;line-height:1.5;border-radius:.2rem}.header{z-index:800;-webkit-backface-visibility:hidden;backface-visibility:hidden;-webkit-transform:translate3d(0,0,0);transform:translate3d(0,0,0);width:100%;height:76px}@media (min-width:48em){.hidden-md-up{display:none!important}}@media (max-width:47.9em){.hidden-sm-down{display:none!important}}.header .nav.link-bar>a{font-size:.85rem;margin-left:1.875rem}.header:after,.header:before{content:" ";display:table}.header>.inner{overflow-x:hidden;padding-right:1.5rem;padding-left:1.5rem}.header .logo{float:left;line-height:0;margin-top:21px;margin-bottom:21px}@media (max-width:33.9em){.header .logo svg{width:106px}}.header .nav{float:right}.header .nav.link-bar{display:none}@media (min-width:48em){.header{background-color:transparent;border-bottom:0;position:fixed;top:0}.header>.inner{padding-right:2rem;padding-left:2rem}.header .nav.link-bar{display:block;margin-top:23px;margin-bottom:23px}.header .nav.call-bar{display:none}}.header .nav.link-bar>a svg{margin-right:.5rem;margin-bottom:-.25rem;width:20px;height:20px}.header .nav .phone-number-link{font-weight:600}.header .nav.call-bar{margin-top:18px;margin-bottom:18px}.header-gray .logo path{fill:#1c1e1f}.header-gray .nav>a{color:#3d4144}.header-gray .nav>.phone-number-link{color:#5c6cff}.nav.link-bar{opacity:1;-webkit-transform:translateX(0);-o-transform:translateX(0);transform:translateX(0);visibility:visible}.owl-carousel{display:none;width:100%;position:relative;z-index:1}.overlay{position:fixed;top:0;right:0;width:100%;height:100%;opacity:0;visibility:hidden;z-index:900;bottom:0;left:0}.grad-blue-green{background-image:-webkit-linear-gradient(315deg,#34c5ee 0,#01ffc3 100%);background-image:-o-linear-gradient(315deg,#34c5ee 0,#01ffc3 100%);background-image:linear-gradient(135deg,#34c5ee 0,#01ffc3 100%)}.security-tag{-webkit-box-align:center;-webkit-align-items:center;-ms-flex-align:center;align-items:center;display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-box-pack:center;-webkit-justify-content:center;-ms-flex-pack:center;justify-content:center;margin-top:.5rem}.intro-marquee .security-tag{-webkit-box-pack:start;-webkit-justify-content:flex-start;-ms-flex-pack:start;justify-content:flex-start}.security-tag svg{margin-bottom:.2rem;width:.8rem;height:.8rem}.intro .tagline,.mobile-wrap .btn-primary{margin-bottom:2rem}.security-tag-headline{font-size:.7rem;margin-left:.5rem}.visible-desktop .container{min-width:768px}.intro-marquee{height:100vh;position:relative}.intro-marquee .hero-image,.video-overlay{position:absolute;top:0;width:auto;height:auto;right:0}.video-overlay{z-index:0;left:0;bottom:0;background:-webkit-gradient(linear,left top,right top,from(rgba(0,0,0,.1)),color-stop(41%,transparent),to(transparent));background:-webkit-linear-gradient(left,rgba(0,0,0,.1) 0,transparent 41%,transparent 100%);background:-o-linear-gradient(left,rgba(0,0,0,.1) 0,transparent 41%,transparent 100%);background:linear-gradient(to right,rgba(0,0,0,.1) 0,transparent 41%,transparent 100%)}.intro-marquee .hero-image{background-position:top right;-webkit-background-size:cover;background-size:cover;min-height:100vh;min-width:100%;z-index:-1}.hero>.container{padding-top:13rem;padding-bottom:15rem;position:relative}.intro-marquee .intro{width:75%;position:absolute;top:17%;left:.9375rem}@media (min-width:75em){.container{max-width:72.25rem}.intro-marquee .intro{width:50%}}.intro-marquee .h1{font-size:2.5rem;font-weight:500;line-height:1.3}@media (min-width:62em){.intro-marquee .h1{font-size:3rem}}.intro .tagline{color:#666;font-size:1.25rem;font-weight:500}.hero-footer{background-color:#fff;border-bottom:solid 1px #eee;color:#3d4144;font-size:.85rem;padding-top:1rem;width:100%;position:absolute;bottom:0;left:0}.hero-footer a{border-bottom:0;color:#5c6cff}.hero-footer svg{display:inline-block;margin-right:.5rem;position:relative;top:1px;width:80px;height:15px}.intro-marquee .container{height:100%;padding-top:0;padding-bottom:0}.article-post-title{color:#3d4144;display:block;font-weight:500;line-height:1.4}.article-post-excerpt{font-size:.85rem;margin-top:.5rem}.article-post-details{margin-top:2rem;margin-bottom:2rem}.article-post-tag{color:#999;font-size:.7rem;font-weight:400;letter-spacing:0}.article-thumb{width:auto;height:200px}@media (min-width:34em){.mobile-wrap .container{margin-top:7rem}}.mobile-wrap>.container svg{width:100%}@media (max-width:33.9em){.mobile-wrap>.container svg{height:200px;margin-top:6rem}}.mobile-wrap h2{margin-top:4rem}@media (max-width:33.9em){.mobile-wrap h2{font-size:1.4rem;margin-top:1rem}}@media (min-width:34em){.mobile-wrap .btn-primary{font-size:1.25rem;margin-top:3rem;padding-top:1.2rem;padding-bottom:1.2rem}}@media (max-width:61.9em){.visible-desktop{display:none}}@media (min-width:48em){.mobile-wrap{display:none}.visible-desktop{display:block}}
+	
+	.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-menu {
+  max-height:150px;
+  overflow-y:scroll;
+}
+
+
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    padding: 12px 16px;
+    z-index: 1;
+}
+
+
+
+
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+	
+	
+	
+	
+	
+	
+	
+	
+
+	
+	
+	</style>
+    <script type="text/javascript" id="loadcss">
+            (function() {
+                function loadCSS(e,n,o,t){"use strict";var d=window.document.createElement("link"),i=n||                window.document.getElementsByTagName("script")[0],r=window.document.styleSheets;                return d.rel="stylesheet",d.href=e,d.media="only x",t&&(d.onload=t),i.parentNode.insertBefore(d,i),                d.onloadcssdefined=function(e){for(var n,o=0;o<r.length;o++)r[o].href&&r[o].href===                d.href&&(n=!0);n?e():setTimeout(function(){d.onloadcssdefined(e)})},                d.onloadcssdefined(function(){d.media=o||"all"}),d}
+                loadCSS("https://d265csgshwrzqv.cloudfront.net/static/compressed/css/8f4e408d7a25.css", document.getElementById("loadcss"));
+            })();
+        </script>
+    <style>
+        .hero-image {
+            background-image: url("common-files/img/coverpicture.jpg");
+        }
+    </style>
+
+
+
+     
+
+     
+
+    
+        <script type="application/ld+json">
+            { "@context" : "http://schema.org",
+              "@type" : "Organization",
+              "name" : "The Zebra",
+              "url" : "https://www.thezebra.com",
+              "logo": " http://brand.thezebra.com/assets/img/the-zebra-logo.png",
+              "sameAs" : [  "https://www.facebook.com/TheZebraCo",
+                            "https://instagram.com/thezebraco",
+                            "https://twitter.com/TheZebraCo",
+                            "https://www.linkedin.com/company/the-zebra",
+                            "https://plus.google.com/+TheZebraCom",
+                    "http://en.wikipedia.org/wiki/The_Zebra",
+                    "https://www.wikidata.org/wiki/Q19845045"
+                ]
+            }
+        </script>
+    
+
+    
+        
+            <script type="text/javascript">
+                
+                    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+                                (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+                            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+                    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+                    ga('create', 'UA-29243804-1', {
+                        cookieDomain: 'www.thezebra.com',
+                        legacyCookieDomain: 'www.thezebra.com'
+                    });
+                    ga('send', 'pageview');
+                
+            </script>
+        
+    
+
+    
+    <script>
+        dataLayer = [];
+    </script>
+    <!-- Google Tag Manager -->
+    <noscript>
+        <iframe src="//www.googletagmanager.com/ns.html?id=GTM-PXDK9T"
+                height="0" width="0" style="display:none;visibility:hidden"></iframe>
+    </noscript>
+    <script>(function (w, d, s, l, i) {
+        w[l] = w[l] || [];
+        w[l].push({
+            'gtm.start': new Date().getTime(), event: 'gtm.js'
+        });
+        var f = d.getElementsByTagName(s)[0],
+                j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : '';
+        j.async = true;
+        j.src = '//www.googletagmanager.com/gtm.js?id=' + i + dl;
+        f.parentNode.insertBefore(j, f);
+    })(window, document, 'script', 'dataLayer', 'GTM-PXDK9T');</script>
+    <!-- End Google Tag Manager -->
+    
+
+    
+        <script type="text/javascript">
+                (function() {
+                    function downloadJSAtOnload() {
+                        var element = document.createElement("script");
+                        element.src = "https://d265csgshwrzqv.cloudfront.net/static/compressed/js/a4be8b2e0c1f.js";
+                        document.body.appendChild(element);
+                    }
+                    // Check for browser support of event handling capability
+                    if (window.addEventListener)
+                        window.addEventListener("load", downloadJSAtOnload, false);
+                    else if (window.attachEvent)
+                        window.attachEvent("onload", downloadJSAtOnload);
+                    else window.onload = downloadJSAtOnload;
+                })();
+            </script>
+        <script>
+            Raven.config('https://9d413894430d4e0eb6a3a3898be04aeb@app.getsentry.com/29055', {
+                release: '8843157cbaea20027110cc7bb880a869ee149326',
+                whitelistUrls: [/localhost/, /insurancezebra\.com/, /thezebra\.com/],
+                // below ignoreErrors and ignoreUrls pilfered from https://gist.github.com/impressiver/5092952
+                ignoreErrors: [
+                  // Random plugins/extensions
+                  'top.GLOBALS',
+                  // See: http://blog.errorception.com/2012/03/tale-of-unfindable-js-error. html
+                  'originalCreateNotification',
+                  'canvas.contentDocument',
+                  'MyApp_RemoveAllHighlights',
+                  'http://tt.epicplay.com',
+                  'Can\'t find variable: ZiteReader',
+                  'jigsaw is not defined',
+                  'ComboSearch is not defined',
+                  'http://loading.retry.widdit.com/',
+                  'atomicFindClose',
+                  // Facebook borked
+                  'fb_xd_fragment',
+                  // ISP "optimizing" proxy - `Cache-Control: no-transform` seems to
+                  // reduce this. (thanks @acdha)
+                  // See http://stackoverflow.com/questions/4113268
+                  'bmi_SafeAddOnload',
+                  'EBCallBackMessageReceived',
+                  // See http://toolbar.conduit.com/Developer/HtmlAndGadget/Methods/JSInjection.aspx
+                  'conduitPage',
+                  'undefined: Expected \';\''
+                ],
+                ignoreUrls: [
+                  // Facebook flakiness
+                  /graph\.facebook\.com/i,
+                  // Facebook blocked
+                  /connect\.facebook\.net\/en_US\/all\.js/i,
+                  // Woopra flakiness
+                  /eatdifferent\.com\.woopra-ns\.com/i,
+                  /static\.woopra\.com\/js\/woopra\.js/i,
+                  // Chrome extensions
+                  /extensions\//i,
+                  /^chrome:\/\//i,
+                  // Other plugins
+                  /127\.0\.0\.1:4001\/isrunning/i,  // Cacaoweb
+                  /webappstoolbarba\.texthelp\.com\//i,
+                  /metrics\.itunes\.apple\.com\.edgesuite\.net\//i
+                ]
+            });
+        </script>
+    
+
+    <script>//script below looks at the window.location.href and parses out key|value pairs
+//and then sets a cookie with a similar key|value data
+function getQueryValue(name) {
+    'use strict';
+    var regex = new RegExp('[\?&]' + name + '=([^&#]*)');
+    var results = regex.exec(window.location.href);
+    if (results == null)
+        return null;
+    else
+        return results[1];
+}
+function setCookie(name, value, overwrite, expires, path, domain, secure) {
+    'use strict';
+    var curCookie = name + '=' + value +
+        ((expires) ? '; expires=' + expires.toUTCString() : '') +
+        ((path) ? '; path=' + path : '') +
+        ((domain) ? '; domain=' + domain : '') +
+        ((secure) ? '; secure' : '');
+    var cValue = ' ' + document.cookie;
+    var regex = new RegExp('\\s' + name + '=', 'gi');
+    var result = regex.exec(cValue);
+    if (result == null || (!!overwrite && result)) {
+        document.cookie = curCookie;
+        return true;
+    }
+    return false;
+}
+
+function getCookie(cname) {
+    var name = cname + "=";
+    var ca = document.cookie.split(';');
+    for (var i = 0; i < ca.length; i++) {
+        var c = ca[i];
+        while (c.charAt(0) == ' ') c = c.substring(1);
+        if (c.indexOf(name) == 0) return c.substring(name.length, c.length);
+    }
+    return '';
+}
+
+function extractTrackingParams(queryParams) {
+    'use strict';
+    var utmMedium = queryParams.utmMedium;
+    var channelId = queryParams.channelId;
+    var subId = queryParams.subId;
+    var subId2 = queryParams.subId2;
+    var subId3 = queryParams.subId3;
+    var subId4 = queryParams.subId4;
+    var subId5 = queryParams.subId5;
+    var subId6 = queryParams.subId6;
+    var subId7 = queryParams.subId7;
+    var agId = queryParams.agId;
+    var keyword = queryParams.keyword;
+    var utmCampaign = queryParams.utmCampaign;
+    var utmSource = queryParams.utmSource;
+    var gclid = queryParams.gclid;
+
+    try {
+        var expDate = new Date();
+        var todayAsInt = parseInt(expDate.getDate());
+
+        var newExpDate = new Date();
+        newExpDate.setDate(todayAsInt + 30);
+        if (!!channelId) {
+            // Overwrite all params every time, expire it if there is no value
+            setCookie('channel_id', channelId, true, newExpDate, '/');
+            setCookie('subid', subId, true, !!subId ? newExpDate : new Date(0), '/');
+            setCookie('subid2', subId2, true, !!subId2 ? newExpDate : new Date(0), '/');
+            setCookie('subid3', subId3, true, !!subId3 ? newExpDate : new Date(0), '/');
+            setCookie('subid4', subId4, true, !!subId4 ? newExpDate : new Date(0), '/');
+            setCookie('subid5', subId5, true, !!subId5 ? newExpDate : new Date(0), '/');
+            setCookie('subid6', subId6, true, !!subId6 ? newExpDate : new Date(0), '/');
+            setCookie('subid7', subId7, true, !!subId7 ? newExpDate : new Date(0), '/');
+            setCookie('agid', agId, true, !!agId ? newExpDate : new Date(0), '/');
+            setCookie('medium', utmMedium, true, !!utmMedium ? newExpDate : new Date(0), '/');
+            setCookie('source', utmSource, true, !!utmSource ? newExpDate : new Date(0), '/'); // Needed for call tracking
+            setCookie('keyword', keyword, true, !!keyword ? newExpDate : new Date(0), '/');
+            setCookie('campaign', utmCampaign, true, !!utmCampaign ? newExpDate : new Date(0), '/'); // Needed for call tracking
+            setCookie('gclid', gclid, true, !!gclid ? newExpDate : new Date(0), '/'); // Needed for call tracking
+        }
+    } catch(err) {
+    }
+}
+
+function trackClickToCall() {
+    // need this event declared here so that _header.html can use it since that is a inherited template and
+    // doesn't have javascript belonging to it
+    var eventCategory = 'Homepage',
+        eventAction = 'Click-To-Call',
+        eventLabel = 'Top-Right';
+    if (ga) {
+        ga('send', 'event', {
+            eventCategory: eventCategory,
+            eventAction: eventAction,
+            eventLabel: eventLabel
+        });
+    } else {
+        console.info('MOCK GA EVENT: Sent ' + eventCategory + ', ' + eventAction + ', ' + eventLabel);
+    }
+}
+
+var queryParams = {
+    utmMedium: getQueryValue('utm_medium'),
+    channelId: getQueryValue('channelid'),
+    subId: getQueryValue('subid'),
+    subId2: getQueryValue('subid2'),
+    subId3: getQueryValue('subid3'),
+    subId4: getQueryValue('subid4'),
+    subId5: getQueryValue('subid5'),
+    subId6: getQueryValue('subid6'),
+    subId7: getQueryValue('subid7'),
+    agId: getQueryValue('utm_adgroup'),
+    keyword: getQueryValue('keyword'),
+    utmCampaign: getQueryValue('utm_campaign'),
+    utmSource: getQueryValue('utm_source'),
+    gclid: getQueryValue('gclid')
+};
+
+extractTrackingParams(queryParams);
+</script>
+
+    
+        
+            <!-- Begin Inspectlet Embed Code -->
+            <script type="text/javascript" id="inspectletjs">
+                window.__insp = window.__insp || [];
+                __insp.push(['wid', 600085922]);
+                (function() {
+                    function __ldinsp(){var insp = document.createElement('script'); insp.type = 'text/javascript'; insp.async = true; insp.id = "inspsync"; insp.src = ('https:' == document.location.protocol ? 'https' : 'http') + '://cdn.inspectlet.com/inspectlet.js'; var x = document.getElementsByTagName('script')[0]; x.parentNode.insertBefore(insp, x); };
+                    document.readyState != "complete" ? (window.attachEvent ? window.attachEvent('onload', __ldinsp) : window.addEventListener('load', __ldinsp, false)) : __ldinsp();
+
+                })();
+            </script>
+            <!-- End Inspectlet Embed Code -->
+        
+    
+</head>
+<body>
+<!--[if lte IE 9]>
+    <div class="splash-header">
+      <h1 class="title">
+        <a class="logo-link" href="/">
+          <img class="img-responsive" src="https://d265csgshwrzqv.cloudfront.net/static/homepage/images/thezebra-white-png.png" alt="Compare Car Insurance Rages and Get Free Quotes | The Zebra">
+        </a>
+      </h1>
+    </div>
+
+    <div class="splash-container small">
+        <h1 class="h1">Save up to 50% on <br />car insurance!</h1>
+        
+        <h3>
+            <b>Call: </b> 1-888-255-4364
+        </h3>
+        <p class="disclaimer">The Zebra doesn't support your browser version, so please give us a call or <a href="http://browsehappy.com/?locale=en">upgrade your browser</a> to the latest version.</p>
+        
+    </div>
+
+    <div class="splash-footer">
+      <div class="splash-container">
+        <p class="legal">Use of Insurance Zebra Insurance Services (DBA TheZebra.com) is subject to our <a href="/help/terms/" rel="nofollow">Terms of Service</a>.<br>Copyright &copy; 2015 Insurance Zebra. All Rights Reserved. <a href="/help/terms/#licenses" rel="nofollow">View Licenses</a>. <a href="/help/privacy/">Privacy Policy.</a></p>
+      </div>
+    </div>
+
+    <ul class="splash-seals">
+      <li class="splash-mcafee">
+        <script>
+          var PDOPTS = PDOPTS || [];
+          PDOPTS['disablefloat'] = 1;
+        </script>
+        <a target="_blank" href="https://www.mcafeesecure.com/verify?host=www.thezebra.com" rel="nofollow"><img class="mfes-trustmark" border="0" src="//cdn.ywxi.net/meter/www.thezebra.com/101.gif" width="125" height="55" title="McAfee SECURE sites help keep you safe from identity theft, credit card fraud, spyware, spam, viruses and online scams" alt="McAfee SECURE sites help keep you safe from identity theft, credit card fraud, spyware, spam, viruses and online scams" oncontextmenu="alert('Copying Prohibited by Law - McAfee Secure is a Trademark of McAfee, Inc.'); return false;"></a>
+      </li>
+      <li class="splash-norton">
+        <img src="https://d265csgshwrzqv.cloudfront.net/static/img/norton-seal-fallback.png" alt="Norton Powered by Symantec" />
+        <a href="http://www.symantec.com/verisign/ssl-certificates" target="_blank" style="display:none" rel="nofollow">ABOUT SSL CERTIFICATES</a>
+      </li>
+      <li class="splash-secure"><img src="https://d265csgshwrzqv.cloudfront.net/static/img/ssl-png.png" title="256 Bit Secured"></li>
+    </ul>
+<![endif]-->
+
+<!--[if gt IE 9]><!-->
+<div id="bodyContainer">
+    
+    <div class="mobile-wrap">
+    
+
+<div class="header header-gray" role="banner" itemscope itemtype="http://schema.org/WPHeader" data-bind="css: {'header-scroll': $root.headerUnderline && $root.headerUnderline()}">
+    <div class="inner">
+        <a href="#" class="logo">
+			<img src = "common-files/img/divrisk_icon.png" alt="logo"/>
+
+
+        </a>
+        <nav class="nav link-bar hidden-sm-down" itemscope itemtype="http://schema.org/SiteNavigationElement">
+            <a href="https://www.divrisk.com/about/" itemprop="url">About</a>
+            <a href="https://www.divrisk.com/help/" itemprop="url">Support</a>
+            <a href="tel:1-855-348-7475" itemprop="url"
+                onclick="trackClickToCall()" class="phone-number-link">
+                <svg width="50px" height="53px" viewBox="0 0 50 53" version="1.1" xmlns="http://www.w3.org/2000/svg">
+    <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g transform="translate(0.000000, 2.000000)">
+            <path d="M26.2,35.4 C23.2,37 12.4,24.9 14.5,22.7 C15.7,21.4 18.7,19.2 17.6,18.1 C17.1,17.6 7.5,7.1 6.8,7.1 C6.1,7.1 3.3,10.2 2.9,10.7 C-0.9,14.8 -3.4,21.6 11.9,37.8 C22.1,48.7 29.7,52.6 35,49.8 C36.6,48.9 39.7,45.7 41,44.4 C41.4,44 41.4,43.3 41,42.9 C28.5,29.7 31.7,30.1 26.4,35.3 C26.4,35.3 26.3,35.4 26.2,35.4 Z" fill="#5c6cff"></path>
+            <path d="M36.9,25.4 C37.1,17.9 31.2,11.8 24,12" stroke="#5c6cff" stroke-width="5"></path>
+            <path d="M47.1,20.9 C47.3,9.8 38.7,0.8 28,1" stroke="#5c6cff" stroke-width="5"></path>
+        </g>
+    </g>
+</svg>
+
+                1.855.348.7475
+            </a>
+        </nav>
+        <nav class="nav call-bar hidden-md-up" itemscope itemtype="http://schema.org/SiteNavigationElement">
+            <a class="btn btn-sm btn-primary-outline" href="tel:1-855-348-7475"
+               onclick="trackClickToCall()">Call an Agent</a>
+        </nav>
+    </div>
+</div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-8 col-xs-offset-2">
+            <?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="326px" height="300px" viewBox="0 0 326 300" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
+    <!-- Generator: Sketch 3.3.3 (12072) - http://www.bohemiancoding.com/sketch -->
+    <title>compare</title>
+    
+            </div>
+        </div>
+        <h2>Coming Soon</h2>
+       
+        
+    </div>
+</div>
+
+    <div class="visible-desktop">
+<div class="header header-gray" role="banner" itemscope itemtype="http://schema.org/WPHeader" data-bind="css: {'header-scroll': $root.headerUnderline && $root.headerUnderline()}">
+    <div class="inner">
+        <a href="../index.html" class="logo">
+           <img src = "common-files/img/divrisk_icon.png" alt="logo"/>
+
+
+        </a>
+	
+   <nav class="nav link-bar hidden-sm-down" itemscope itemtype="http://schema.org/SiteNavigationElement">
+			
+			<a href="pages/commercial.html" itemprop="url">Commercial Insurance</a>
+			<a href="pages/personal.html" itemprop="url">Personal Insurance</a>
+            <a href="pages/specialevents.html" itemprop="url">Special Events Insurance</a>
+		
+            <a href="pages/about.html" itemprop="url">About</a>
+            <a href="pages/support.html" itemprop="url">Support</a>
+			
+			
+		</div>
+			
+            <a href="tel:1-855-348-7475" itemprop="url"
+                onclick="trackClickToCall()" class="phone-number-link">
+                <svg width="50px" height="53px" viewBox="0 0 50 53" version="1.1" xmlns="http://www.w3.org/2000/svg">
+    <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g transform="translate(0.000000, 2.000000)">
+            <path d="M26.2,35.4 C23.2,37 12.4,24.9 14.5,22.7 C15.7,21.4 18.7,19.2 17.6,18.1 C17.1,17.6 7.5,7.1 6.8,7.1 C6.1,7.1 3.3,10.2 2.9,10.7 C-0.9,14.8 -3.4,21.6 11.9,37.8 C22.1,48.7 29.7,52.6 35,49.8 C36.6,48.9 39.7,45.7 41,44.4 C41.4,44 41.4,43.3 41,42.9 C28.5,29.7 31.7,30.1 26.4,35.3 C26.4,35.3 26.3,35.4 26.2,35.4 Z" fill="#5c6cff"></path>
+            <path d="M36.9,25.4 C37.1,17.9 31.2,11.8 24,12" stroke="#5c6cff" stroke-width="5"></path>
+            <path d="M47.1,20.9 C47.3,9.8 38.7,0.8 28,1" stroke="#5c6cff" stroke-width="5"></path>
+        </g>
+    </g>
+</svg>
+
+                1.855.348.7475
+            </a>
+			
+        </nav>   
+        <nav class="nav call-bar hidden-md-up" itemscope itemtype="http://schema.org/SiteNavigationElement">
+            <a class="btn btn-sm btn-primary-outline" href="tel:1-855-348-7475"
+               onclick="trackClickToCall()">Call an Agent</a>
+        </nav>
+    </div>
+</div>
+
+        <main role="main" itemprop="mainContentOfPage">
+            <section class="hero cover intro-marquee">
+                <div class="hero-image" role="img" aria-labelledby="Compare commercial insurance quotes with Divrisk.com"></div>
+                <div class="video-overlay"></div>
+                <div class="container">
+                    <div class="intro">
+						<div class="dropdown">
+					
+                        <h2 class="h2" data-bind="waypoints: {offset: '60px', onScrollTo: headerUnderline}">Coming Soon</h2>
+                        
+                    </div>
+                </div>
+               
+           
+            </section>
+
+          
+
+           
+     
+
+        <section class="bottom-navs text-center">
+    <div class="container section-xs">
+        
+
+<nav class="nav-list" itemscope itemtype="http://schema.org/SiteNavigationElement">
+    <a href="https://www.divrisk.com/" itemprop="url">Home</a>
+    <a href="https://www.divrisk.com/press/" itemprop="url">Press</a>
+    <a href="https://www.divrisk.com/careers/" itemprop="url">Careers</a>
+    <a href="https://www.divrisk.com/help/" itemprop="url">Support</a>
+    <a href="https://www.divrisk.com/insurance-news/" target="_blank" itemprop="url">Blog</a>
+</nav>
+        
+
+<nav class="nav-social">
+    <a href="https://www.facebook.com/DIVRISK/" target="_blank">
+        <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 80 80" enable-background="new 0 0 80 80" xml:space="preserve">
+<path class="social-gradient" fill="#DDDDDD" d="M40,5.4C20.9,5.4,5.4,20.9,5.4,40S20.9,74.6,40,74.6S74.6,59.1,74.6,40
+S59.1,5.4,40,5.4z M50.2,25.8c0,0-3.5,0-4.8,0c-1.7,0-2.1,0.7-2.1,2.5c0,1.5,0,4.3,0,4.3h6.9L49.6,40h-6.2v22.4h-8.9V40.1h-4.6v-7.6
+h4.6c0,0,0-1.1,0-6c0-5.6,3-8.5,9.6-8.5c1.1,0,6.2,0,6.2,0L50.2,25.8L50.2,25.8z"/>
+</svg>
+        <span class="anchor-text">Divrisk on Facebook</span>
+    </a>
+    <a href="https://www.linkedin.com/company/2362495/" target="_blank">
+        <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 80 80" enable-background="new 0 0 80 80" xml:space="preserve">
+<path class="social-gradient" fill="#DDDDDD" d="M40,5.4C20.9,5.4,5.4,20.9,5.4,40S20.9,74.6,40,74.6S74.6,59.1,74.6,40
+S59.1,5.4,40,5.4z M30.8,56.7h-7.6V32.2h7.6V56.7z M26.9,29c-2.5,0-4.5-2-4.5-4.5s2-4.5,4.5-4.5c2.5,0,4.5,2,4.5,4.5
+S29.4,29,26.9,29z M59.2,56.7h-7.6c0,0,0-9.4,0-12.9s-1.3-5.5-4.1-5.5c-3,0-4.6,2.1-4.6,5.5c0,3.8,0,12.9,0,12.9h-7.3V32.2h7.3v3.3
+c0,0,2.2-4.1,7.4-4.1c5.2,0,8.9,3.2,8.9,9.8C59.2,47.8,59.2,56.7,59.2,56.7z"/>
+</svg>
+        <span class="anchor-text">Divrisk on LinkedIn</span>
+    </a>
+    <a href="https://www.twitter.com/DIVRISK" target="_blank">
+        <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 80 80" enable-background="new 0 0 80 80" xml:space="preserve">
+<path class="social-gradient" fill="#DDDDDD" d="M40,5.4C20.9,5.4,5.4,20.9,5.4,40S20.9,74.6,40,74.6S74.6,59.1,74.6,40S59.1,5.4,40,5.4
+z M57.4,34c0.5,11.3-7.9,23.9-22.8,23.9c-4.5,0-8.8-1.3-12.3-3.6c4.3,0.5,8.5-0.7,11.9-3.3c-3.5-0.1-6.5-2.4-7.5-5.6
+c1.3,0.2,2.5,0.2,3.6-0.1c-3.9-0.8-6.5-4.3-6.4-8c1.1,0.6,2.3,1,3.6,1c-3.6-2.4-4.6-7.1-2.5-10.7c4,4.9,9.9,8.1,16.5,8.4
+c-1.2-5,2.6-9.9,7.8-9.9c2.3,0,4.4,1,5.9,2.5c1.8-0.4,3.5-1,5.1-1.9c-0.6,1.9-1.9,3.4-3.5,4.4c1.6-0.2,3.2-0.6,4.6-1.3
+C60.3,31.5,59,32.9,57.4,34z"/>
+</svg>
+
+        <span class="anchor-text">Divrisk on Twitter</span>
+    </a>
+
+    <a href="https://www.instagram.com/D.RISK" target="_blank">
+        <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 80 80" enable-background="new 0 0 80 80" xml:space="preserve">
+<path class="social-gradient" fill="#DDDDDD" d="M32.7,40c0-4.1,3.3-7.5,7.5-7.5c4.1,0,7.5,3.3,7.5,7.5c0,4.1-3.3,7.5-7.5,7.5
+C36,47.5,32.7,44.1,32.7,40z M52.1,40c0,6.6-5.3,11.9-11.9,11.9c-6.6,0-11.9-5.3-11.9-11.9c0-1,0.1-2,0.4-3h-3.4v16.4
+c0,0.8,0.7,1.5,1.5,1.5h26.9c0.8,0,1.5-0.7,1.5-1.5V37h-3.4C52,38,52.1,39,52.1,40z M53.6,25.1h-4.5c-0.8,0-1.5,0.7-1.5,1.5V31
+c0,0.8,0.7,1.5,1.5,1.5h4.5c0.8,0,1.5-0.7,1.5-1.5v-4.5C55.1,25.7,54.4,25.1,53.6,25.1z M74.6,40c0,19.1-15.5,34.6-34.6,34.6
+S5.4,59.1,5.4,40S20.9,5.4,40,5.4S74.6,20.9,74.6,40z M59.6,25.1c0-2.5-2-4.5-4.5-4.5H25.2c-2.5,0-4.5,2-4.5,4.5v29.9
+c0,2.5,2,4.5,4.5,4.5h29.9c2.5,0,4.5-2,4.5-4.5L59.6,25.1L59.6,25.1z"/>
+</svg>
+
+        <span class="anchor-text">Divrisk on Instagram</span>
+    </a>
+</nav>
+    </div>
+</section>
+
+        <div data-bind="waypoints: {offset: '30%', onScrollTo: trackScrollFooter, once: true}"></div>
+      <section class="contacts-2">
+        <div class="container">
+         
+          <div class="row">
+              <h6>We are located at</h6>
+
+              <div class="map" style="width:1200px;height:400px">
+                <!--map-->
+               <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d12095.647162146877!2d-73.99882927134497!3d40.7199582965716!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c25989a77cddf5%3A0xb441dd315a5eb7ea!2s154+Grand+St%2C+New+York%2C+NY+10013!5e0!3m2!1sen!2sus!4v1507831518964" width="1200" height="400" frameborder="0" style="border:0" allowfullscreen></iframe>
+              </div>
+          </div>
+        </div>
+      </section>
+
+        
+
+
+
+
+
+    
+    
+
+    
+
+
+<script>
+    var config = (function () {
+        var appConfig = {"ANALYTICS": {"GA": {"CATEGORY": "Homepage", "LABELS": {"zipChange": "Zip-Change-Submit", "zip": {"zipSubmitTop": "Zip-Submit-Top", "zipSubmitBottom": "Zip-Submit-Bottom"}, "startHome": "Start-Home", "vehiclePicker": {"vehicleModelSelected": "Vehicle-Model-Selected", "vehicleMakeSelected": "Vehicle-Make-Selected", "vehicleYearSelected": "Vehicle-Year-Selected", "vehicleRestart": "Vehicle-Restart", "landWithoutZip": "Land-Without-Zip", "startOver": "Start-Over", "landWithZip": "Land-With-Zip", "vehicleSubmitEnterApp": "Vehicle-Submit-Enter-App"}, "clickToCall": "Click-To-Call", "scroll": {"scrollFooter": "Scroll-Footer", "scrollGraph": "Scroll-Graph", "scrollTimelineStart": "Scroll-Timeline-Start", "scrollZipBottom": "Scroll-Zip-Bottom"}}, "ACTIONS": {"zipChange": "Zip-Change", "zip": "Zip", "startHome": "Start-Home", "vehiclePicker": "Vehicle-Picker", "clickToCall": "Click-To-Call", "scroll": "Scroll"}}}, "ENVIRONMENT_NAME": "Production", "ONLY_CAN_SELL_INTERNALLY": false, "SELECT_VEHICLE_URL": "/select-vehicle/"};
+        var config = {"LANDING_PAGE": {"SUREHITS_POPUNDER_ENABLE": true}, "ANALYTICS": {"StatePageApp": {"ANALYTICS": {"GA": {"CATEGORY": "State Pages", "ACTIONS": {"zip": "Zip"}}}, "channelid": "UCYX01", "welcome_experience_id": "98a401", "SELECT_VEHICLE_URL": "/compare/start/"}, "InteriorPageApp": {"ANALYTICS": {"GA": {"CATEGORY": "Homepage", "LABELS": {"zipChange": "Zip-Change-Submit", "zip": {"zipSubmitTop": "Zip-Submit-Top", "zipSubmitBottom": "Zip-Submit-Bottom"}, "startHome": "Start-Home", "vehiclePicker": {"vehicleModelSelected": "Vehicle-Model-Selected", "vehicleMakeSelected": "Vehicle-Make-Selected", "vehicleYearSelected": "Vehicle-Year-Selected", "vehicleRestart": "Vehicle-Restart", "landWithoutZip": "Land-Without-Zip", "startOver": "Start-Over", "landWithZip": "Land-With-Zip", "vehicleSubmitEnterApp": "Vehicle-Submit-Enter-App"}, "clickToCall": "Click-To-Call", "scroll": {"scrollFooter": "Scroll-Footer", "scrollGraph": "Scroll-Graph", "scrollTimelineStart": "Scroll-Timeline-Start", "scrollZipBottom": "Scroll-Zip-Bottom"}}, "ACTIONS": {"zipChange": "Zip-Change", "zip": "Zip", "startHome": "Start-Home", "vehiclePicker": "Vehicle-Picker", "clickToCall": "Click-To-Call", "scroll": "Scroll"}}}, "ENVIRONMENT_NAME": "Production", "ONLY_CAN_SELL_INTERNALLY": false, "SELECT_VEHICLE_URL": "/select-vehicle/"}}, "APP": {"PATH": "/compare/", "ONLY_CAN_SELL_INTERNALLY": true}, "SUREHITS": {"CARRIER_PANEL_SOURCE": "a", "THANK_YOU_SOURCE": "c", "ADVERT_VARIATION": 2, "POPUNDER_SOURCE": "h"}, "DRIVETIME": {"CHANNEL_ID": "98A401", "DEFAULT_COVERAGE": 0}, "API": {"HOST": "https://www.thezebra.com", "ZIPCODE_API_PATH": "/api/v2/zipcodes/", "SESSION_COOKIE": "sessionid", "QUOTE_API_PATH": "/api/internal/v1/quote/", "SESSION_PATH": "/", "VEHICLE_VIN_LOOKUP_API_PATH": "/api/v1/vin-select/get/?username=zfront&api_key=d57714fe74db21dd97ce6e89e2c0f385fd774d74&vin=", "ESTIMATE_GET_TASK_STATUS": "/be/get-task-status/", "VEHICLE_API": "/api/v2/vehicles/"}};
+        if (appConfig) {
+            for (var attrName in appConfig) {
+                config[attrName] = appConfig[attrName];
+            }
+        }
+        return config;
+    })();
+</script>
+
+    <script type="text/javascript" src="https://d265csgshwrzqv.cloudfront.net/static/compressed/js/8a6bad16f25a.js"></script>
+
+    <script type="text/javascript" src="https://d265csgshwrzqv.cloudfront.net/static/compressed/js/ee636e8b74eb.js"></script>
+
+    <script>
+        (function() {
+            var oldOnLoad = window.onload;
+            window.onload = function() {
+                var count = 0;
+                var interval = setInterval(function() {
+                    if (document.getElementsByTagName("zipcode-form").length === 0) {
+                        if (count > 6) {
+                            clearInterval(interval);
+                            Raven.captureException("Zipcode form on homepage doesn't show up", {extra: {quote: window.quote}});
+                        } else {
+                            count += 1;
+                        }
+                    } else {
+                        clearInterval(interval);
+                        if (count > 0) {
+                            Raven.captureMessage("Zipcode form on homepage shows up", {extra: {checks: count}});
+                        }
+                    }
+                }, 500);
+
+                if (typeof oldOnLoad === 'function') {
+                    oldOnLoad();
+                }
+            }
+        })();
+    </script>
+
+
+</div>
+</body>
+</html>
